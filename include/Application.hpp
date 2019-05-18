@@ -1,9 +1,13 @@
-#define GLFW_INCLUDE_NONE
-#include <GLFW/glfw3.h>
-
-#include <nanovg.h>
 
 #pragma once
+
+#define NANOGUI_LINUX
+//#define GLFW_INCLUDE_NONE
+//#include <GLFW/glfw3.h>
+
+#define NANOVG_GL3_IMPLEMENTATION
+#include <nanogui.h>
+
 
 #ifndef __SWITCH__
 #define ASSET(_str) "./resources/" _str
@@ -26,7 +30,7 @@ namespace app
             bool mainLoop();
 
         private:
-            GLFWwindow* window  = NULL;
+            //GLFWwindow* window  = NULL;
             NVGcontext *vg      = NULL;
 
             FontStash fontStash;

@@ -8,9 +8,9 @@
 #include <switch.h>
 #endif
 
-#define GLFW_INCLUDE_NONE
-#include <GLFW/glfw3.h>
-#include <glad.h>
+//#define GLFW_INCLUDE_NONE
+//#include <GLFW/glfw3.h>
+//#include <glad.h>
 
 #define GLM_FORCE_PURE
 #define GLM_ENABLE_EXPERIMENTAL
@@ -21,12 +21,16 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/rotate_vector.hpp>
 
-#include <nanovg.h>
+//#include <nanovg.h>
 #define NANOVG_GL3_IMPLEMENTATION
-#include <nanovg_gl.h>
-
+#define NANOGUI_LINUX
+//#include <nanovg_gl.h>
+#include <nanogui.h>
 constexpr uint32_t WINDOW_WIDTH = 1280;
 constexpr uint32_t WINDOW_HEIGHT = 720;
+#ifndef WINDOW_NAME
+constexpr const char* WINDOW_NAME = "defaulttitle";
+#endif
 constexpr const char* WINDOW_TITLE = WINDOW_NAME;
 
 using namespace app;
@@ -34,7 +38,7 @@ using namespace std;
 
 // glfw code from the glfw hybrid app by fincs
 // https://github.com/fincs/hybrid_app
-
+/*
 static void windowFramebufferSizeCallback(GLFWwindow* window, int width, int height)
 {
     if (!width || !height)
@@ -81,9 +85,10 @@ static void windowKeyCallback(GLFWwindow* window, int key, int scancode, int act
         }
     }
 }
-
+*/
 bool Application::init()
 {
+    /*
     // Init glfw
     glfwInitHint(GLFW_JOYSTICK_HAT_BUTTONS, GLFW_FALSE);
     if (!glfwInit())
@@ -152,12 +157,13 @@ bool Application::init()
        }
 #endif
     this->fontStash.regular = nvgCreateFont(this->vg, "regular", ASSET("Inter-Regular.ttf")); //TODO: Load shared font on Switch
-
+*/
     return true;
 }
 
 bool Application::mainLoop()
 {
+    /*
     // glfw events
     bool is_active;
     do
@@ -197,10 +203,10 @@ bool Application::mainLoop()
     // Render
     this->frame();
     glfwSwapBuffers(window);
-
+*/
     return true;
 }
-
+/*
 void Application::frame()
 {
     // Frame context
@@ -239,11 +245,13 @@ void Application::frame()
     // End frame
     nvgEndFrame(this->vg);
 }
-
+*/
 void Application::exit()
 {
+    /*
     if (this->vg)
         nvgDeleteGL3(this->vg);
 
     glfwTerminate();
+    */
 }
